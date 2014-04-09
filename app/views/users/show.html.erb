@@ -1,1 +1,19 @@
 <h1><%= @user.name %></h1>
+
+<h3>Your Photos</h3>
+<% @owner_photos.each do |photo| %>
+  <%= image_tag photo.img(:medium) %>
+<% end %>
+
+<h3>Tagged photos</h3>
+<% @tagged.each do |photo| %>
+  <%= image_tag photo.img(:medium) %>
+<% end %>
+
+
+<%= form_for @photo, :url => photos_path, :html => { :multipart => true } do |form| %>
+  <div class="field">
+    <%= form.file_field :img %>
+  </div><br>
+  <div class="actions"><%= form.submit "Submit" %></div>
+<% end %>

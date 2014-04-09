@@ -16,6 +16,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @photo = Photo.new
+    @owner_photos = []
+    @owner = @user.tags.where({ :owner => true })
+    @owner.each do |tag|
+      @owner_photos << Photo.find(tag.photo_id)
+    end
+    @tagged = @user.photos - @owner_photos
+
   end
 
 

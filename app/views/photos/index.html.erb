@@ -1,8 +1,8 @@
 <h1>Welcome to Phliker!!</h1>
 
-<ul>
+
   <% @photos.each do |photo| %>
-    <li><%= photo.title %></li>
+    <%= image_tag photo.img(:thumb) %>
 
   <% end %>
-</ul>
+

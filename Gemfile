@@ -8,7 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
-gem "paperclip"
+gem "paperclip", github: 'thoughtbot/paperclip'
 gem 'bcrypt'
 
 group :development do
