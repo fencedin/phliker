@@ -1,0 +1,8 @@
+default: &default
+  adapter: postgresql
+development:
+  <<: *default
+  database: phliker_development
+test:
+  <<: *default
+  database: phliker_test
