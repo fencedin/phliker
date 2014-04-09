@@ -1,0 +1,15 @@
+<h1>Photo</h1>
+<h3>Owner: <%= @user.name %></h3>
+
+<a href="/users/<%= @user.id %>"><%= image_tag @photo.img %></a>
+<hr>
+Tag other user with this photo
+
+<%= form_for(@tag) do |f| %>
+  <div class="field">
+    <%= f.hidden_field(:photo_id, :value => "#{@photo.id}") %>
+    <%= f.select(:user_id, options_for_select(@user_array)) %>
+  </div>
+
+  <div class="actions"><%= f.submit "Tag!" %></div>
+<% end %>
