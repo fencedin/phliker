@@ -30,8 +30,9 @@
 </div>
 
 <%= yield %>
-<hr>
+
 <% if !current_page?("/") %>
+  <hr>
   <%= link_to "Back to home page", "/" %>
 <% end %>
 </body>
