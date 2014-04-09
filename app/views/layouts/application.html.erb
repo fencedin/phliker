@@ -7,12 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <%= flash[:notice] %>
+<div class="loginmenu">
 <% if current_user %>
-  Logged in as <%= current_user.name %>.
+  Logged in as <%= current_user.name %>.<br>
+  <%= link_to "Profile", user_path(current_user) %>
   <%= link_to "Log Out", logout_path %>
 <% else %>
-  <%= link_to "Sign Up", signup_path %> or
   <%= form_tag sessions_path do %>
     <div class="field">
       <%= label_tag :name %><br />
@@ -24,8 +25,9 @@
     </div>
     <div class="actions"><%= submit_tag "Log In" %></div>
   <% end %>
+  <a href ="/signup/"><button>Sign Up</button></a>
 <% end %>
-
+</div>
 
 <%= yield %>
 

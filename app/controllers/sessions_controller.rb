@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
     user = User.find_by_name(params[:name])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to '/', notice: 'Logged in successfully!'
     else
-      render "new"
+      redirect_to '/', notice: 'Name or password is invalid!'
     end
   end
 
